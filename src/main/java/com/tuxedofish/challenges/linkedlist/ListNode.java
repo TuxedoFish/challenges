@@ -14,10 +14,15 @@ public class ListNode {
     	list.append('[');
     	list.append(this.val);
     	ListNode current = this.next;
-    	while(current != null) {
+    	int nodes = 1;
+    	while(current != null && nodes < 10) {
     		list.append(", ");
     		list.append(current.val);
     		current = current.next;
+    		nodes ++;
+    	}
+    	if(nodes >= 10) {
+    		list.append(", ...");
     	}
     	list.append(']');
     	return list.toString();
