@@ -100,19 +100,37 @@ public class LinkedListProblems {
      * determine if the linked list has a cycle in it.
      */
     public static Boolean hasCycle(ListNode head) {
+    	// Brute force solution using Hashtable
     	// The below is O(n * 1) => O(n) time complexity [containsKey is O(1)]
     	// And O(n) space complexity
-    	ListNode curr = head;
-        Hashtable<ListNode, Integer> hashtable = new Hashtable<ListNode, Integer>();
-        
-        while(curr != null) {
-            if(hashtable.containsKey(curr)) {
-                return true;
-            }
-            hashtable.put(curr, 0);
-            curr = curr.next;
-        }
-        
-        return false;
+//    	ListNode curr = head;
+//    	int index = 0;
+//        Hashtable<ListNode, Integer> hashtable = new Hashtable<ListNode, Integer>();
+//        
+//        while(curr != null) {
+//            if(hashtable.containsKey(curr)) {
+//                return true;
+//            }
+//            hashtable.put(curr, index);
+//            curr = curr.next;
+//            index ++;
+//        }
+//    	
+//        
+//        return false;
+    	// The below is O(n) time complexity
+    	// And O(1) constant memory
+    	if(head == null) { return false; }
+    	
+    	ListNode slow = head;
+    	ListNode fast = head.next;
+    	
+    	while(fast != null && fast.next != null) {
+    		if(slow == fast) { return true; }
+    		slow = slow.next;
+			fast = fast.next.next;
+    	}
+    	
+    	return false;
     }
 }
