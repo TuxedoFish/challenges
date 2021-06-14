@@ -1,5 +1,7 @@
 package com.tuxedofish.challenges.linkedlist;
 
+import java.util.Hashtable;
+
 public class LinkedListProblems {
 	/* 83. Remove duplicates from sorted linked list
 	   Given the head of a sorted linked list, 
@@ -51,7 +53,7 @@ public class LinkedListProblems {
 //    	
 //    	return null;
     	// The below is O(2n + m) => O(n) time complexity
-    	// And O() space complexity
+    	// And O(1) space complexity
     	if(headA == null || headB == null) { return null; }
     	
     	// Calculate count of A
@@ -91,5 +93,26 @@ public class LinkedListProblems {
     	}
     	
     	return null;
+    }
+    /* 
+     * 141. Linked List Cycle
+     * Given head, the head of a linked list,
+     * determine if the linked list has a cycle in it.
+     */
+    public static Boolean hasCycle(ListNode head) {
+    	// The below is O(n * 1) => O(n) time complexity [containsKey is O(1)]
+    	// And O(n) space complexity
+    	ListNode curr = head;
+        Hashtable<ListNode, Integer> hashtable = new Hashtable<ListNode, Integer>();
+        
+        while(curr != null) {
+            if(hashtable.containsKey(curr)) {
+                return true;
+            }
+            hashtable.put(curr, 0);
+            curr = curr.next;
+        }
+        
+        return false;
     }
 }
