@@ -86,4 +86,24 @@ public class BinarySearchTest {
     	int actual = BinarySearchProblems.search(input, target);
         assertEquals(expected, actual);
     }  
+	@Test                                               
+    @DisplayName("Returns correct with single number that is found")   
+    public void singleNumberExistsCase() {
+    	int expected = 0;
+    	int[] input = new int[] {1};
+    	int target = 1;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    }  
+	@Test                                               
+    @DisplayName("Returns correct with single number that is not found")   
+    public void singleNumberNotExistsCase() {
+    	int expected = -1;
+    	int[] input = new int[] {1};
+    	int target = 100;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    }  
 }
