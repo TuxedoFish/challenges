@@ -133,4 +133,37 @@ public class LinkedListProblems {
     	
     	return false;
     }
+    public static ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+    	
+    	// The below is O(n + m) Time complexity => o(n)
+    	// where n - length of list1 and m is length of list2
+    	// Still not the fastest solution
+    	
+    	// Variable setup
+        int index = 0;
+        ListNode nodeA = null, nodeB = null, currA = list1;
+        
+        // Iterate through for nodeA and nodeB
+        while(index <= b + 1 & currA != null) {
+            if(index == a - 1) {
+                nodeA = currA;
+            }
+            if(index == b + 1) {
+                nodeB = currA;
+            }
+            index ++;
+            currA = currA.next;
+        }
+        
+        // Go to end of list 2 and append nodeB
+        ListNode currB = list2;
+        while (currB.next != null) { currB = currB.next; }
+        currB.next = nodeB;
+        
+        // Append list2 + nodeB to nodeA
+        nodeA.next = list2;
+        
+        // Return the complete linked list
+        return list1;
+    }
 }

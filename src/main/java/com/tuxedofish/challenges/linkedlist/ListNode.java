@@ -15,13 +15,14 @@ public class ListNode {
     	list.append(this.val);
     	ListNode current = this.next;
     	int nodes = 1;
-    	while(current != null && nodes < 10) {
+    	int MAX_NODES_TO_PRINT = 20;
+    	while(current != null && nodes < MAX_NODES_TO_PRINT + 1) {
     		list.append(", ");
     		list.append(current.val);
     		current = current.next;
     		nodes ++;
     	}
-    	if(nodes >= 10) {
+    	if(nodes == MAX_NODES_TO_PRINT) {
     		list.append(", ...");
     	}
     	list.append(']');
