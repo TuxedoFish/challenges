@@ -14,8 +14,10 @@ public class BinarySearchProblems {
         }
         
         if(curr < target) {
+        	if(mid == nums.length) { return -1; }
             return searchRecursive(nums, target, mid + 1, right);
         } else if (curr > target) {
+        	if(mid == 0) { return -1; }
             return searchRecursive(nums, target, left, mid - 1);
         } else {
             return mid;
