@@ -56,4 +56,34 @@ public class BinarySearchTest {
     	int actual = BinarySearchProblems.search(input, target);
         assertEquals(expected, actual);
     }  
+	@Test                                               
+    @DisplayName("Returns correct not found with small array")   
+    public void smallArrayCase() {
+    	int expected = -1;
+    	int[] input = new int[] {2, 5};
+    	int target = 0;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    } 
+	@Test                                               
+    @DisplayName("Returns correct with small array")   
+    public void smallArrayStartCase() {
+    	int expected = 0;
+    	int[] input = new int[] {2, 5};
+    	int target = 2;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    }  
+	@Test                                               
+    @DisplayName("Returns correct with small array")   
+    public void smallArrayEndCase() {
+    	int expected = 1;
+    	int[] input = new int[] {2, 5};
+    	int target = 5;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    }  
 }
