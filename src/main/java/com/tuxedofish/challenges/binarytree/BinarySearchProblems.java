@@ -30,4 +30,39 @@ public class BinarySearchProblems {
             return mid;
         }
     }
+    
+    public static int countNegatives(int[][] grid) {
+    	// Time complexity is O(n + m)
+    	// Space complexity is O(1) constant space
+    	
+    	// There is a brute force solution with O(n * m)
+    	// There is also a recursive solution with O(n * m)
+    	
+        // Get the number of rows and cols
+        int rows = grid.length;
+        int cols = grid[0].length;
+        
+        // Initialize the count
+        int count = 0;
+        
+        // Start at the bottom left
+        int i = 0;
+        int j = rows - 1;
+        
+        // Loop through
+        while(i < cols && j != -1) {
+            if(grid[j][i] < 0) {
+                // Add whole row
+                count += cols - i;
+                // Move upwards
+                j --;
+            } else {
+                // Move to the right
+                i ++;
+            }
+        }
+        
+        return count;
+    }
+    
 }
