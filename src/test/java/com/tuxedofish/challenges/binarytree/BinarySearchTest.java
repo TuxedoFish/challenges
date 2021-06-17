@@ -106,4 +106,14 @@ public class BinarySearchTest {
     	int actual = BinarySearchProblems.search(input, target);
         assertEquals(expected, actual);
     }  
+	@Test                                               
+    @DisplayName("Returns correct with three length array")   
+    public void threeNumberNotExistsCase() {
+    	int expected = -1;
+    	int[] input = new int[] {1,3,5};
+    	int target = 4;
+    	
+    	int actual = BinarySearchProblems.search(input, target);
+        assertEquals(expected, actual);
+    }  
 }
