@@ -25,7 +25,7 @@ public class UnitTests {
         assertEquals(3, actual);
     }
 	@Test                                               
-    @DisplayName("Returns duplicate within small array")   
+    @DisplayName("Returns duplicate within edge case array")   
     public void smallestArrayCase() {
     	int[] nums = new int[] {1,1};
         int actual = solution.findDuplicate(nums);
